@@ -11,9 +11,11 @@ This repository is the orchestration and policy home. Product code belongs in th
 
 Start with [AGENTS.md](AGENTS.md), the [registry](registry/repos.json), [research](docs/research), and [operating workflow](docs/operations/workflow.md).
 
+The executable Codex team is configured in [.codex](.codex); see [agent usage](agents/README.md) for assignments and product setup.
+
 ## Local checks
 
-Requires Python 3.10 or later. Run `python3 scripts/validate.py`.
+Requires Python 3.11 or later. Run `python3 scripts/validate.py`.
 
 ## Principles
 
