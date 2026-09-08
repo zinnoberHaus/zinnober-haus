@@ -6,13 +6,19 @@
 - Portfolio registry, shared agent roles, two validated repository skills and operating workflow.
 - Research preserves the full product ambitions and separates proposed capabilities from implemented software.
 
-## Cleanup blocker
+## Cleanup completed
 
-The initial inventory contained 13 repositories. Preserve zinnober-haus; exclude microyee-ai and mircoyee-ai everywhere. The 12 other original repositories were mirrored locally and all mirrors passed `git fsck --full`. Issue, pull-request and release metadata were also exported. Backups remain outside this public repository.
+After the account owner refreshed GitHub authentication with `delete_repo`, all 12 original non-preserved repositories were deleted on 2026-09-08. Before deletion, their Git mirrors were refreshed and every mirror passed `git fsck --full` again. Deletion was restricted to the original inventory under zinnoberHaus; the new product repositories were excluded.
 
-The first deletion attempt returned HTTP 403 because the active GitHub credential lacks `delete_repo`. No repository was deleted. The account owner must authenticate with that scope before cleanup can proceed. Do not broaden access to unrelated accounts.
+The authenticated post-cleanup inventory contains exactly three public repositories: `zinnober-haus`, `zettel`, and `carthouse`. No operations targeted microyee-ai, mircoyee-ai, or repositories belonging to another owner.
 
-These backups preserve Git history and selected metadata, not all GitHub-hosted state (settings, secrets, packages, release binaries, LFS and discussions are not comprehensively backed up).
+Git backups, the original private inventory, selected issue/pull-request/release metadata and a per-repository deletion log remain outside the public repository. These backups preserve Git history and selected metadata, not all GitHub-hosted state (settings, secrets, packages, release binaries, LFS and discussions are not comprehensively backed up).
+
+## Setup verification
+
+All three repositories have the shared project agent definitions, contribution/security/governance policies, Apache-2.0 licensing and validation workflows. The umbrella also owns the registry, shared skills, role usage instructions and research briefs. Each product has five milestones and five roadmap issues.
+
+GitHub API verification confirms public visibility, issues, squash merging, merged-branch deletion, required `validate` checks on main, private vulnerability reporting and vulnerability alerts. Agent configuration and planning-artifact checks do not establish product functionality.
 
 ## Product readiness
 
