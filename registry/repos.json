@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "owner": "zinnoberHaus",
+  "excluded": [
+    "microyee-ai",
+    "mircoyee-ai"
+  ],
+  "repositories": [
+    {
+      "name": "zinnober-haus",
+      "url": "https://github.com/zinnoberHaus/zinnober-haus",
+      "status": "active",
+      "purpose": "Portfolio orchestration, shared context, skills, agents and governance"
+    },
+    {
+      "name": "zettel",
+      "url": "https://github.com/zinnoberHaus/zettel",
+      "status": "planning",
+      "purpose": "Enterprise self-hosted work management and collaborative documents/tables"
+    },
+    {
+      "name": "carthouse",
+      "url": "https://github.com/zinnoberHaus/carthouse",
+      "status": "planning",
+      "purpose": "AI-native data engineering, warehouse access and DAG orchestration"
+    }
+  ]
+}
