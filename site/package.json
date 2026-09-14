@@ -1,0 +1,22 @@
+{
+  "name": "@zinnober-haus/site",
+  "private": true,
+  "type": "module",
+  "version": "0.1.0",
+  "engines": {
+    "node": ">=24.11.1"
+  },
+  "scripts": {
+    "dev": "node scripts/generate-content.mjs && astro dev",
+    "build": "node scripts/generate-content.mjs && astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@astrojs/markdown-remark": "7.3.0",
+    "@astrojs/starlight": "0.42.0",
+    "astro": "7.3.2"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.63.0"
+  }
+}

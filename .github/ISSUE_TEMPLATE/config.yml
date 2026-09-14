@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Vulnerability reporting
+    url: https://github.com/zinnoberHaus/zinnober-haus/blob/main/SECURITY.md
+    about: Use private reporting for exploitable vulnerabilities and secrets.

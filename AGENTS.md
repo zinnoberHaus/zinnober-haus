@@ -20,5 +20,11 @@ Meet acceptance criteria, run relevant checks, document deployment and recovery 
 
 - `.agents/skills/repository-bootstrap/SKILL.md`
 - `.agents/skills/release-readiness/SKILL.md`
+- `.agents/skills/portfolio-triage/SKILL.md`
+- `.agents/skills/publish-handbook/SKILL.md`
 
 Product repositories inherit these principles through their own checked-in AGENTS.md; changes require explicit synchronization and review.
+
+## Operations
+
+Read registry/agents.json for roles and handoffs, registry/ticketing.json for shared issue conventions, and registry/services.json for verified service ownership. Use docs/operations/agent-assignments.md to scope work. Lifecycle automation is deterministic; agents only execute when assigned. New service entries start as prepared or not-provisioned until live verification supports a stronger status.

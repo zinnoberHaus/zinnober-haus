@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "owner": "zinnoberHaus",
   "excluded": [
     "microyee-ai",
@@ -10,19 +10,49 @@
       "name": "zinnober-haus",
       "url": "https://github.com/zinnoberHaus/zinnober-haus",
       "status": "active",
-      "purpose": "Portfolio orchestration, shared context, skills, agents and governance"
+      "purpose": "Portfolio orchestration, shared context, skills, agents and governance",
+      "maintainer": "zinnoberHaus",
+      "default_branch": "main",
+      "license": "Apache-2.0",
+      "issues_url": "https://github.com/zinnoberHaus/zinnober-haus/issues",
+      "docs_url": "https://zinnoberhaus.github.io/zinnober-haus/",
+      "docs_source": "docs/",
+      "hosting_service": "github-pages-portfolio",
+      "agent_registry": "registry/agents.json",
+      "release_channel": "unreleased",
+      "last_verified": "2026-09-14"
     },
     {
       "name": "zettel",
       "url": "https://github.com/zinnoberHaus/zettel",
       "status": "planning",
-      "purpose": "Enterprise self-hosted work management and collaborative documents/tables"
+      "purpose": "Enterprise self-hosted work management and collaborative documents/tables",
+      "maintainer": "zinnoberHaus",
+      "default_branch": "main",
+      "license": "Apache-2.0",
+      "issues_url": "https://github.com/zinnoberHaus/zettel/issues",
+      "docs_url": "https://zinnoberhaus.github.io/zinnober-haus/projects/zettel/",
+      "docs_source": "docs/product-research.md",
+      "hosting_service": "github-pages-portfolio",
+      "agent_registry": "registry/agents.json",
+      "release_channel": "unreleased",
+      "last_verified": "2026-09-14"
     },
     {
       "name": "carthouse",
       "url": "https://github.com/zinnoberHaus/carthouse",
       "status": "planning",
-      "purpose": "AI-native data engineering, warehouse access and DAG orchestration"
+      "purpose": "AI-native data engineering, warehouse access and DAG orchestration",
+      "maintainer": "zinnoberHaus",
+      "default_branch": "main",
+      "license": "Apache-2.0",
+      "issues_url": "https://github.com/zinnoberHaus/carthouse/issues",
+      "docs_url": "https://zinnoberhaus.github.io/zinnober-haus/projects/carthouse/",
+      "docs_source": "docs/product-research.md",
+      "hosting_service": "github-pages-portfolio",
+      "agent_registry": "registry/agents.json",
+      "release_channel": "unreleased",
+      "last_verified": "2026-09-14"
     }
   ]
 }

@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "services": [
+    {
+      "id": "github-issues",
+      "provider": "GitHub",
+      "purpose": "Public ticket source of truth",
+      "owner": "zinnoberHaus",
+      "status": "active",
+      "credentials": "GitHub CLI local keyring; repository GITHUB_TOKEN for authorized workflow jobs",
+      "runbook": "docs/operations/ticketing.md"
+    },
+    {
+      "id": "github-projects",
+      "provider": "GitHub",
+      "purpose": "Cross-repository portfolio board",
+      "owner": "zinnoberHaus",
+      "status": "awaiting-authentication",
+      "credentials": "gh OAuth project scope for maintainers; no token committed",
+      "runbook": "docs/operations/ticketing.md"
+    },
+    {
+      "id": "github-pages-portfolio",
+      "provider": "GitHub Pages",
+      "purpose": "Public project hub and documentation",
+      "owner": "zinnoberHaus",
+      "status": "prepared",
+      "url": "https://zinnoberhaus.github.io/zinnober-haus/",
+      "source": "site/",
+      "credentials": "GitHub Actions pages deployment token and OIDC",
+      "runbook": "docs/operations/hosting-and-docs.md"
+    },
+    {
+      "id": "vercel",
+      "provider": "Vercel",
+      "purpose": "Optional managed site/application hosting",
+      "owner": null,
+      "status": "not-provisioned",
+      "reason": "Only connected team is Microyee; requires confirmed Zinnober Haus scope",
+      "runbook": "docs/operations/hosting-and-docs.md"
+    },
+    {
+      "id": "mintlify",
+      "provider": "Mintlify",
+      "purpose": "Optional managed documentation",
+      "owner": null,
+      "status": "not-provisioned",
+      "reason": "Evaluate managed features and account/plan before adoption",
+      "runbook": "docs/operations/hosting-and-docs.md"
+    }
+  ]
+}

@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "system": "github-issues",
+  "owner": "zinnoberHaus",
+  "project": {
+    "title": "Zinnober Haus Portfolio",
+    "number": null,
+    "url": null,
+    "state": "awaiting-project-scope",
+    "fields": [
+      {
+        "name": "Priority",
+        "type": "SINGLE_SELECT",
+        "options": [
+          "P0",
+          "P1",
+          "P2",
+          "P3"
+        ]
+      },
+      {
+        "name": "Workstream",
+        "type": "SINGLE_SELECT",
+        "options": [
+          "Portfolio",
+          "Zettel",
+          "Carthouse"
+        ]
+      },
+      {
+        "name": "Target date",
+        "type": "DATE"
+      }
+    ]
+  },
+  "labels": [
+    {
+      "name": "type:bug",
+      "color": "d73a4a",
+      "description": "A reproducible defect"
+    },
+    {
+      "name": "type:feature",
+      "color": "1d76db",
+      "description": "New product capability"
+    },
+    {
+      "name": "type:docs",
+      "color": "0075ca",
+      "description": "Documentation or examples"
+    },
+    {
+      "name": "type:research",
+      "color": "7057ff",
+      "description": "Evidence or architecture investigation"
+    },
+    {
+      "name": "type:maintenance",
+      "color": "64748b",
+      "description": "Repository and dependency maintenance"
+    },
+    {
+      "name": "status:triage",
+      "color": "fbca04",
+      "description": "Awaiting scope and priority review"
+    },
+    {
+      "name": "status:ready",
+      "color": "0e8a16",
+      "description": "Acceptance criteria and dependencies are clear"
+    },
+    {
+      "name": "status:in-progress",
+      "color": "1d76db",
+      "description": "Actively being worked"
+    },
+    {
+      "name": "status:blocked",
+      "color": "b60205",
+      "description": "Waiting on an explicit dependency"
+    },
+    {
+      "name": "status:review",
+      "color": "5319e7",
+      "description": "Implementation ready for review"
+    },
+    {
+      "name": "priority:p0",
+      "color": "b60205",
+      "description": "Active outage or critical security impact"
+    },
+    {
+      "name": "priority:p1",
+      "color": "d93f0b",
+      "description": "Required for the next committed outcome"
+    },
+    {
+      "name": "priority:p2",
+      "color": "fbca04",
+      "description": "Normal planned work"
+    },
+    {
+      "name": "priority:p3",
+      "color": "cfd3d7",
+      "description": "Optional improvement"
+    },
+    {
+      "name": "good first issue",
+      "color": "7057ff",
+      "description": "Small, documented and mentored contribution"
+    },
+    {
+      "name": "help wanted",
+      "color": "008672",
+      "description": "Maintainer welcomes contributions"
+    }
+  ]
+}
