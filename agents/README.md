@@ -13,7 +13,7 @@ Every assignment states target repository, owned paths, expected artifact, accep
 
 ## Configured Codex team
 
-The primary session coordinates four project agents in `.codex/agents`: `product_researcher`, `architect`, `implementer` and `verifier`. `.codex/config.toml` enables delegation with up to three concurrent subagents. Models and reasoning effort inherit the caller's selection. Agent files do not change account credentials or grant additional permissions.
+The primary session coordinates nine project agents in `.codex/agents`: `product_researcher`, `architect`, `implementer`, `verifier`, `triage_manager`, `docs_maintainer`, `release_manager`, `security_reviewer` and `portfolio_steward`. `.codex/config.toml` enables delegation with up to three concurrent subagents. Models and reasoning effort inherit the caller's selection. Agent files do not change account credentials or grant additional permissions.
 
 Open Codex in this trusted repository to use the configuration. Product work should use a product checkout as the working directory and the shared roles copied with the setup below. Agent configuration discovery depends on the client; roles remain usable as explicit task instructions in clients without this support.
 
@@ -28,3 +28,5 @@ Configuration reference checked 2026-09-08: [official OpenAI subagent documentat
 ## Validation evidence
 
 The installed Codex CLI 0.153.4 accepted the project config through `config/read` in an isolated temporary trusted configuration home. Repository validation parses all role TOML files and checks their required fields. This verifies configuration loading and structure; it is not a live model execution test of each role. The standalone CLI's existing user home currently marks this checkout untrusted, so it disables project settings until the user trusts the reviewed project through the client. No user-wide trust settings were changed.
+
+The [agent registry](../registry/agents.json) defines assignment triggers, outputs, scope and handoffs. Use the [assignment guide](../docs/operations/agent-assignments.md) for concrete work orders. Agents run on assignment; ticket automation is a separate GitHub workflow.

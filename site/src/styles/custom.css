@@ -1,0 +1,17 @@
+:root { --sl-color-accent-low: #3d1723; --sl-color-accent: #c12842; --sl-color-accent-high: #ffc3ce; --sl-font: 'Avenir Next', 'Segoe UI', sans-serif; }
+:root[data-theme='light'] { --sl-color-accent-low: #ffe6ec; --sl-color-accent: #ad1733; --sl-color-accent-high: #5d1222; --sl-color-bg: #fafbfd; }
+.hero h1 { font-weight: 750; letter-spacing: -0.055em; max-width: 10ch; line-height: 1.02; }
+.hero .tagline { max-width: 43ch; }
+.site-title { font-weight: 800; letter-spacing: -0.04em; }
+.portfolio { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; margin: 2.5rem 0; }
+.project { padding: 1.75rem; border-inline-start: 4px solid var(--sl-color-accent); background: var(--sl-color-gray-6); border-radius: 0 1rem 1rem 0; }
+.project:nth-child(2) { border-inline-start-color: #587caa; }
+.project-top { display: flex; align-items: baseline; justify-content: space-between; gap: .75rem; flex-wrap: wrap; }
+.project h2 { margin: 0; font-size: 1.6rem; }
+.project h2 a { color: var(--sl-color-white); text-decoration: none; }
+.stage { font-size: .85rem; color: var(--sl-color-gray-2); }
+.project p { max-width: 42ch; min-height: 4.5em; }
+.project-link { font-weight: 650; }
+a:focus-visible { outline: 3px solid var(--sl-color-accent); outline-offset: 4px; }
+@media (max-width: 40rem) { .portfolio { grid-template-columns: 1fr; } .project p { min-height: 0; } }
+.sl-markdown-content .portfolio > .project { margin-block: 0; }

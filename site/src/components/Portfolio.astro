@@ -1,0 +1,13 @@
+---
+import registry from '../../../registry/repos.json';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+<div class="portfolio">
+{registry.repositories.filter(repo => repo.name !== 'zinnober-haus').map(repo => (
+  <article class="project">
+    <div class="project-top"><h2><a href={`${base}/projects/${repo.name}/`}>{repo.name === 'zettel' ? 'Zettel' : 'Carthouse'}</a></h2><span class="stage">{repo.status}</span></div>
+    <p>{repo.purpose}.</p>
+    <a class="project-link" href={`${repo.url}/issues`}>Explore the work</a>
+  </article>
+))}
+</div>

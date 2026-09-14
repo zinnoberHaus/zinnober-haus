@@ -1,0 +1,130 @@
+{
+  "schema_version": 1,
+  "owner": "zinnoberHaus",
+  "invocation_mode": "coordinator_assignment",
+  "policy": {
+    "coordinator": "primary_session",
+    "accountable_maintainer": "zinnoberHaus",
+    "repository_registry": "registry/repos.json",
+    "assignment_guide": "docs/operations/agent-assignments.md",
+    "config": ".codex/config.toml",
+    "automatic_execution": false,
+    "model_selection": "inherit_parent",
+    "permissions": "inherit_parent",
+    "write_scope": "explicitly_assigned_paths_only",
+    "external_mutations": "require_task_authorization",
+    "public_messages": "require_explicit_task_authorization",
+    "excluded_repositories": ["microyee-ai", "mircoyee-ai"],
+    "evidence_required": ["source_revision_or_observation_time", "commands_and_results", "acceptance_criteria_status", "unresolved_risks"]
+  },
+  "agents": [
+    {
+      "name": "product_researcher",
+      "config_path": ".codex/agents/product_researcher.toml",
+      "scope_repositories": ["zinnober-haus", "zettel", "carthouse"],
+      "purpose": "Verify product capabilities, enterprise requirements and upstream reuse options.",
+      "triggers": ["New product capability proposal", "A product brief or source claim needs fresh evidence"],
+      "inputs": ["Product brief or issue URL", "Research question and decision deadline", "Relevant first-party sources"],
+      "outputs": ["Dated primary-source findings", "Capability and licensing gaps", "Acceptance scenarios"],
+      "suggested_paths": ["docs/research/"],
+      "write_scope": "Assigned research paths only; otherwise return findings without edits",
+      "handoff": ["architect", "triage_manager"]
+    },
+    {
+      "name": "architect",
+      "config_path": ".codex/agents/architect.toml",
+      "scope_repositories": ["zinnober-haus", "zettel", "carthouse"],
+      "purpose": "Resolve a bounded design decision using current implementation and reuse evidence.",
+      "triggers": ["A proposed change crosses an architectural boundary", "An accepted issue needs interfaces or a migration decision"],
+      "inputs": ["Accepted requirement", "Research findings", "Existing code, deployment constraints and ADRs"],
+      "outputs": ["ADR with alternatives and consequences", "Interface and migration plan", "Verification gates"],
+      "suggested_paths": ["docs/adr/"],
+      "write_scope": "Assigned architecture document paths only",
+      "handoff": ["implementer", "security_reviewer"]
+    },
+    {
+      "name": "implementer",
+      "config_path": ".codex/agents/implementer.toml",
+      "scope_repositories": ["zinnober-haus", "zettel", "carthouse"],
+      "purpose": "Implement an accepted issue in its owning repository.",
+      "triggers": ["An issue has an agreed outcome, acceptance criteria and file ownership"],
+      "inputs": ["Issue and acceptance criteria", "Relevant ADRs", "Owned paths and forbidden mutations"],
+      "outputs": ["Scoped code or configuration change", "Relevant tests and results", "Changed-file report and remaining criteria"],
+      "suggested_paths": [],
+      "write_scope": "Only implementation and test paths explicitly assigned for the issue",
+      "handoff": ["verifier", "docs_maintainer", "security_reviewer"]
+    },
+    {
+      "name": "verifier",
+      "config_path": ".codex/agents/verifier.toml",
+      "scope_repositories": ["zinnober-haus", "zettel", "carthouse"],
+      "purpose": "Independently prove or challenge each completion claim at the claimed scope.",
+      "triggers": ["An implementation is ready for review", "A deployment or release is claimed complete"],
+      "inputs": ["Original acceptance criteria", "Candidate revision or deployment URL", "Allowed verification environment"],
+      "outputs": ["Criterion-by-criterion proven, contradicted or unverified report", "Direct runtime or source evidence", "Blocking defects and untested areas"],
+      "suggested_paths": ["docs/verification/"],
+      "write_scope": "Assigned verification report paths only; no implementation edits",
+      "handoff": ["implementer", "release_manager", "portfolio_steward"]
+    },
+    {
+      "name": "triage_manager",
+      "config_path": ".codex/agents/triage_manager.toml",
+      "scope_repositories": ["zinnober-haus", "zettel", "carthouse"],
+      "purpose": "Turn incoming reports into reproducible, deduplicated and actionable work.",
+      "triggers": ["Maintainer requests an inbox review", "A new issue needs scope, reproduction or dependency analysis"],
+      "inputs": ["Bounded issue URLs or query", "Current labels and milestones", "Repository issue templates"],
+      "outputs": ["Issue triage table", "Proposed labels, duplicates and dependencies", "Acceptance criteria and suggested next owner"],
+      "suggested_paths": ["docs/operations/triage/"],
+      "write_scope": "Assigned triage report paths; issue mutations require task authorization",
+      "handoff": ["product_researcher", "architect", "implementer", "security_reviewer"]
+    },
+    {
+      "name": "docs_maintainer",
+      "config_path": ".codex/agents/docs_maintainer.toml",
+      "scope_repositories": ["zinnober-haus", "zettel", "carthouse"],
+      "purpose": "Maintain truthful, task-oriented documentation and the documentation site.",
+      "triggers": ["A behavior or configuration change affects users", "A documentation route or link fails", "A release candidate needs version-specific guidance"],
+      "inputs": ["Product revision or PR", "Target audience and user task", "Assigned documentation and site paths"],
+      "outputs": ["Verified documentation change", "Build and rendered-route evidence", "Product/documentation discrepancy report"],
+      "suggested_paths": ["docs/", "README.md"],
+      "write_scope": "Assigned docs and site source paths; deployment requires task authorization",
+      "handoff": ["implementer", "verifier", "release_manager"]
+    },
+    {
+      "name": "release_manager",
+      "config_path": ".codex/agents/release_manager.toml",
+      "scope_repositories": ["zinnober-haus", "zettel", "carthouse"],
+      "purpose": "Prepare release candidates and operational evidence for independent verification.",
+      "triggers": ["A milestone reaches its defined release criteria", "Maintainer requests a release readiness assessment"],
+      "inputs": ["Candidate commit and intended version", "Artifact list and previous release", "Product release criteria and release-readiness skill"],
+      "outputs": ["Candidate manifest and draft release notes", "Install, upgrade and recovery evidence", "Blockers and independent verification request"],
+      "suggested_paths": ["docs/releases/"],
+      "write_scope": "Assigned release documents or packaging paths; publishing requires task authorization",
+      "handoff": ["verifier", "security_reviewer", "docs_maintainer", "portfolio_steward"]
+    },
+    {
+      "name": "security_reviewer",
+      "config_path": ".codex/agents/security_reviewer.toml",
+      "scope_repositories": ["zinnober-haus", "zettel", "carthouse"],
+      "purpose": "Independently review security boundaries, dependencies and delivery trust.",
+      "triggers": ["A change affects authorization, credentials, untrusted execution or CI permissions", "A release candidate needs security review", "An authorized private vulnerability investigation is assigned"],
+      "inputs": ["Repository and candidate revision", "Threat scenario and allowed test environment", "Output visibility and SECURITY.md"],
+      "outputs": ["Findings with severity, reproduction and impact", "Remediation and regression check", "Unverified risks and evidence limits"],
+      "suggested_paths": [],
+      "write_scope": "Assigned review artifacts only; undisclosed findings stay in approved private destinations",
+      "handoff": ["implementer", "verifier", "release_manager"]
+    },
+    {
+      "name": "portfolio_steward",
+      "config_path": ".codex/agents/portfolio_steward.toml",
+      "scope_repositories": ["zinnober-haus"],
+      "purpose": "Keep the portfolio registry and operational links consistent with observed reality.",
+      "triggers": ["Maintainer requests a portfolio review", "A registered repository, service or agent changes", "Release evidence supports a maturity update"],
+      "inputs": ["Named registered repositories and audit date", "Registry files and authorized read-only API state", "Owned output paths"],
+      "outputs": ["Expected-versus-observed evidence table", "Scoped registry patch", "Maintenance ticket drafts and role handoffs"],
+      "suggested_paths": ["registry/", "docs/operations/"],
+      "write_scope": "Assigned umbrella registry and operations paths; no product implementation edits",
+      "handoff": ["triage_manager", "docs_maintainer", "release_manager", "verifier"]
+    }
+  ]
+}
