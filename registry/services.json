@@ -24,11 +24,14 @@
       "provider": "GitHub Pages",
       "purpose": "Public project hub and documentation",
       "owner": "zinnoberHaus",
-      "status": "prepared",
+      "status": "active",
       "url": "https://zinnoberhaus.github.io/zinnober-haus/",
       "source": "site/",
       "credentials": "GitHub Actions pages deployment token and OIDC",
-      "runbook": "docs/operations/hosting-and-docs.md"
+      "runbook": "docs/operations/hosting-and-docs.md",
+      "last_verified": "2026-09-14",
+      "verified_commit": "4f0459ef85a6ef9c5f0b2de56a99f1bc64e13438",
+      "evidence": "https://github.com/zinnoberHaus/zinnober-haus/actions/runs/34893837112"
     },
     {
       "id": "vercel",
